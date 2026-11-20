@@ -5,10 +5,13 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;800&amp;display=swap">
    <link rel="stylesheet" href="style.css">
    </head><body>
-   <p>короче нахуй если тут чето не робит я хс я заеблась всо мне пох</p>
-  <a href="https://soundcloud.com/kaaviilxraavaa" target="_blank" rel="noopener noreferrer">
-    мой самый крутой бля буду отвечаю точно вшаренный ск с 3 подписчиками
-  </a>
+  <aside>
+  <h1>kaaviilxraavaa — топ 47</h1>
+  <p>короче нахуй если тут чето не робит я хс я заеблась всо мне пох</p>
+  <a class="l" href="https://soundcloud.com/kaaviilxraavaa" target="_blank" rel="noopener noreferrer">мой самый крутой бля буду отвечаю точно вшаренный ск с 3 подписчиками</a>
+  <nav id="nav"></nav>
+</aside>
+<main id="list"></main>
 <section class="m" id="t1"><a class="bd" href="#a1" aria-label="закрыть"></a><div class="p">
 <div class="L"><div class="big" style="background-image:url(images/bezdar.jpg)">01</div>
 <div class="note"><p class="q">Liner Notes</p><p> Илья Гримин - автор песни. На данный момент новые песни не выходят в связи с ситуацией в жизни Ильи. Для ознакомления лучше перейти в его социальные сети, а еще лучше поддержать материально - +7 (931) 374-92-47/2200154582549738 Альфа-Банк/покупка CD с последним альбомом, для покупки - юз tg @Akumaqqwa, все средства уходят на лечение. И я и Илья будем очень благодарны!</p></div></div>
@@ -559,5 +562,43 @@
   </b>
 </p><p class="q"> Семён вырос в пегете Звёздный в Кемеровской области, с подростковых лет подрабатывал ради независимости и серьезно занимался спортом. После школы он поступил в Кемеровский кооперативный техникум на специальность «правоохранительная деятельность», но вместо службы в органах выбрал андеграундный рэп, я же говорила что наш поцик.</p><a class="l" href="https://on.soundcloud.com/rx14Ro8G7ZAFFV8jja">открыть на SoundCloud ↗</a>
 <div class="pn"><a href="#t46">◂ назад</a><a href="#a47">✕ закрыть</a><a href="#t1">дальше ▸</a></div></div></div></section>
+<script>
+const nav = document.getElementById('nav');
+const list = document.getElementById('list');
+document.querySelectorAll('section.m').forEach((s, i) => {
+  const n = i + 1;
+  const title = s.querySelector('h3').textContent;
+  const artist = s.querySelector('.ar').textContent;
+  const bg = s.querySelector('.big').style.backgroundImage;
+  const genre = s.querySelector('.g');
 
+  const pill = document.createElement('a');
+  pill.href = '#t' + n;
+  pill.textContent = n;
+  nav.appendChild(pill);
+
+  const a = document.createElement('a');
+  a.id = 'a' + n;
+  a.href = '#t' + n;
+
+  const art = document.createElement('article');
+  const cover = document.createElement('div');
+  cover.className = 'c';
+  cover.style.backgroundImage = bg;
+  cover.textContent = n;
+
+  const info = document.createElement('div');
+  const h2 = document.createElement('h2');
+  h2.textContent = title;
+  const p = document.createElement('p');
+  p.className = 'ar';
+  p.textContent = artist;
+  info.append(h2, p);
+  if (genre) info.appendChild(genre.cloneNode(true));
+
+  art.append(cover, info);
+  a.appendChild(art);
+  list.appendChild(a);
+});
+</script>
 </body></html>
